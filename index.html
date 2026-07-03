@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="A home page for tetizz chess projects: Play Bots, Bookup, and Chess Connections."
+      content="A home base for tetizz chess tools: Play Bots, Bookup, and Chess Connections."
     >
     <title>tetizz chess lab</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -23,7 +24,6 @@
       </a>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#projects">Projects</a>
-        <a href="#about">About</a>
         <a href="https://github.com/tetizz" target="_blank" rel="noreferrer">GitHub</a>
       </nav>
     </header>
@@ -32,13 +32,14 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <h1 id="hero-title">
-            <span>Chess tools</span>
-            <span>built from real</span>
-            <span>games</span>
+            <span>Practice, study,</span>
+            <span>and trace your</span>
+            <span>chess work.</span>
           </h1>
           <p>
-            Play profile bots, study your own openings, and trace proof-backed
-            win chains from Chess.com data.
+            This is the front door for my chess projects. You can play profile
+            bots, turn your own games into opening practice, and trace real
+            Chess.com win chains without digging through three different repos.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="https://tetizz.github.io/Play/">
@@ -55,27 +56,12 @@
             </a>
           </div>
         </div>
-        <div class="hero-system" aria-hidden="true">
-          <div class="board-map">
-            <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span>
-            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-          </div>
-          <div class="proof-ledger">
-            <strong>Proof ledger</strong>
-            <span>real games</span>
-            <span>legal boards</span>
-            <span>engine checks</span>
-          </div>
-        </div>
       </section>
 
       <section class="projects-section" id="projects" aria-labelledby="projects-title">
         <div class="section-heading">
           <h2 id="projects-title">Projects</h2>
-          <p>Three chess tools with real boards, real archives, and links back to the source.</p>
+          <p>Each tool has its own job, but they all point at the same goal: make chess practice feel concrete and useful.</p>
         </div>
 
         <div class="project-grid">
@@ -90,13 +76,14 @@
               <span class="project-token">Play</span>
               <h3>Play Bots</h3>
               <p>
-                Play against personality-driven coach bots with legal move
-                validation, opening prep, and Stockfish-backed analysis.
+                Jump straight into games against custom bots. The point is not
+                a generic engine match; it is a place to test ideas, get punished
+                for lazy moves, and review what happened after.
               </p>
               <ul class="feature-list">
-                <li>Selectable Mubassar and Ayden profiles</li>
-                <li>Legal board powered by chess.js</li>
-                <li>Stockfish 18 WASM plus fallback evaluator</li>
+                <li>Different bot profiles with their own style</li>
+                <li>Legal board play with premoves and undo support</li>
+                <li>Game review backed by engine checks</li>
               </ul>
               <div class="project-actions">
                 <a class="button small primary" href="https://tetizz.github.io/Play/">Open Play Bots</a>
@@ -116,13 +103,14 @@
               <span class="project-token">Study</span>
               <h3>Bookup</h3>
               <p>
-                A repertoire trainer built from public Chess.com archives,
-                local study state, and source-aware Smart Theory trees.
+                Bring in your games and turn repeated mistakes into a training
+                queue. It is for building a repertoire from positions you
+                actually reach, not from a random opening list.
               </p>
               <ul class="feature-list">
-                <li>Rapid, blitz, and bullet import paths</li>
-                <li>Repertoire, training, progress, and theory workspaces</li>
-                <li>Browser exports for PGN, JSON, and nested theory trees</li>
+                <li>Rapid, blitz, and bullet game imports</li>
+                <li>Training views for positions that need work</li>
+                <li>Smart Theory exports for cleaner study trees</li>
               </ul>
               <div class="project-actions">
                 <a class="button small primary" href="https://tetizz.github.io/Bookup/">Open Bookup</a>
@@ -142,13 +130,14 @@
               <span class="project-token">Trace</span>
               <h3>Chess Connections</h3>
               <p>
-                Trace proof-backed win chains from a Chess.com username to a
-                master target with graph views, ledgers, and leaderboards.
+                Search for a path from one player to another using real public
+                games. Every connection points back to proof games, so the graph
+                is fun without being made up.
               </p>
               <ul class="feature-list">
-                <li>Recorded rapid, blitz, and bullet wins only</li>
-                <li>Animated graph plus proof-game ledger</li>
-                <li>Cloudflare-backed search jobs and shared cache</li>
+                <li>Rapid, blitz, and bullet wins from Chess.com</li>
+                <li>Readable graph and proof ledger views</li>
+                <li>Cloudflare worker cache for heavier searches</li>
               </ul>
               <div class="project-actions">
                 <a class="button small primary" href="https://tetizz.github.io/Connections/">Open Connections</a>
@@ -158,35 +147,6 @@
           </article>
         </div>
       </section>
-
-      <section class="about-strip" id="about" aria-labelledby="about-title">
-        <div>
-          <h2 id="about-title">Built around actual chess work</h2>
-          <p>
-            These projects share the same direction: use public game data, legal
-            boards, engine analysis, and proof links to make chess practice more concrete.
-          </p>
-        </div>
-        <div class="link-columns" aria-label="Project links">
-          <div>
-            <h3>Live projects</h3>
-            <a href="https://tetizz.github.io/Play/">Play Bots</a>
-            <a href="https://tetizz.github.io/Bookup/">Bookup</a>
-            <a href="https://tetizz.github.io/Connections/">Chess Connections</a>
-          </div>
-          <div>
-            <h3>GitHub</h3>
-            <a href="https://github.com/tetizz/Play" target="_blank" rel="noreferrer">tetizz/Play</a>
-            <a href="https://github.com/tetizz/Bookup" target="_blank" rel="noreferrer">tetizz/Bookup</a>
-            <a href="https://github.com/tetizz/Connections" target="_blank" rel="noreferrer">tetizz/Connections</a>
-          </div>
-        </div>
-      </section>
     </main>
-
-    <footer class="site-footer">
-      <span>tetizz chess lab</span>
-      <a href="https://github.com/tetizz/Home" target="_blank" rel="noreferrer">Homepage source</a>
-    </footer>
   </body>
 </html>
