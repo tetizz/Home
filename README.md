@@ -14,4 +14,3 @@ Source repositories:
 - <https://github.com/tetizz/Bookup>
 - <https://github.com/tetizz/Connections>
 
-This repository is a static GitHub Pages site. Open `index.html` directly or serve the folder with any static server.
