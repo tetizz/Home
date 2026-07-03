@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="A home page for tetizz chess projects: Play Bots, Bookup, and Chess Connections."
+    >
+    <title>tetizz chess lab</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="tetizz chess lab home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="img">
+            <path d="M9.5 3.75h5v2.2l-1.35 1.1v2.7l5.8 9.45a1.3 1.3 0 0 1-1.1 1.98H6.15a1.3 1.3 0 0 1-1.1-1.98l5.8-9.45v-2.7L9.5 5.95v-2.2Z"></path>
+            <path d="M9.55 15.9h4.35M8.35 18.15h7.3"></path>
+          </svg>
+        </span>
+        <span><strong>tetizz</strong> chess lab</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="https://github.com/tetizz" target="_blank" rel="noreferrer">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <h1 id="hero-title">
+            <span>Chess tools</span>
+            <span>built from real</span>
+            <span>games</span>
+          </h1>
+          <p>
+            Play profile bots, study your own openings, and trace proof-backed
+            win chains from Chess.com data.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://tetizz.github.io/Play/">
+              <span aria-hidden="true">▶</span>
+              Open Play Bots
+            </a>
+            <a class="button secondary" href="https://github.com/tetizz/Home" target="_blank" rel="noreferrer">
+              <span aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <path d="M12 .75a11.25 11.25 0 0 0-3.56 21.92c.56.1.77-.24.77-.54v-1.96c-3.12.68-3.78-1.33-3.78-1.33-.51-1.29-1.25-1.64-1.25-1.64-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1 1.55-.78 1.93-1.13.08-.72.39-1.21.71-1.49-2.49-.28-5.1-1.25-5.1-5.55 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.15a10.68 10.68 0 0 1 5.64 0c2.15-1.45 3.09-1.15 3.09-1.15.62 1.55.23 2.7.12 2.98.72.79 1.15 1.79 1.15 3.02 0 4.31-2.62 5.26-5.12 5.54.4.35.76 1.03.76 2.08v3c0 .3.2.65.78.54A11.25 11.25 0 0 0 12 .75Z"></path>
+                </svg>
+              </span>
+              View GitHub
+            </a>
+          </div>
+        </div>
+        <div class="hero-system" aria-hidden="true">
+          <div class="board-map">
+            <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span>
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="proof-ledger">
+            <strong>Proof ledger</strong>
+            <span>real games</span>
+            <span>legal boards</span>
+            <span>engine checks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects-section" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <h2 id="projects-title">Projects</h2>
+          <p>Three chess tools with real boards, real archives, and links back to the source.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card play-card">
+            <div class="project-icon bot" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img">
+                <path d="M12 3v3M7 8h10a4 4 0 0 1 4 4v3.6a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V12a4 4 0 0 1 4-4Z"></path>
+                <path d="M8.2 13.1h.01M15.8 13.1h.01M9 16.3h6"></path>
+              </svg>
+            </div>
+            <div>
+              <span class="project-token">Play</span>
+              <h3>Play Bots</h3>
+              <p>
+                Play against personality-driven coach bots with legal move
+                validation, opening prep, and Stockfish-backed analysis.
+              </p>
+              <ul class="feature-list">
+                <li>Selectable Mubassar and Ayden profiles</li>
+                <li>Legal board powered by chess.js</li>
+                <li>Stockfish 18 WASM plus fallback evaluator</li>
+              </ul>
+              <div class="project-actions">
+                <a class="button small primary" href="https://tetizz.github.io/Play/">Open Play Bots</a>
+                <a class="button small secondary" href="https://github.com/tetizz/Play" target="_blank" rel="noreferrer">Source</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card bookup-card">
+            <div class="project-icon book" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img">
+                <path d="M4 5.2A3.2 3.2 0 0 1 7.2 2H20v17.5H7.2A3.2 3.2 0 0 0 4 22.7V5.2Z"></path>
+                <path d="M4 5.2A3.2 3.2 0 0 1 7.2 2H20M8 6h8M8 10h7"></path>
+              </svg>
+            </div>
+            <div>
+              <span class="project-token">Study</span>
+              <h3>Bookup</h3>
+              <p>
+                A repertoire trainer built from public Chess.com archives,
+                local study state, and source-aware Smart Theory trees.
+              </p>
+              <ul class="feature-list">
+                <li>Rapid, blitz, and bullet import paths</li>
+                <li>Repertoire, training, progress, and theory workspaces</li>
+                <li>Browser exports for PGN, JSON, and nested theory trees</li>
+              </ul>
+              <div class="project-actions">
+                <a class="button small primary" href="https://tetizz.github.io/Bookup/">Open Bookup</a>
+                <a class="button small secondary" href="https://github.com/tetizz/Bookup" target="_blank" rel="noreferrer">Source</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card connections-card">
+            <div class="project-icon graph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img">
+                <path d="M6 8.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM18 13.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM7 21a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"></path>
+                <path d="m8.35 7.45 7.3 2.6M7.95 16.25l7.9-3.9M6.2 8.5l.6 7.5"></path>
+              </svg>
+            </div>
+            <div>
+              <span class="project-token">Trace</span>
+              <h3>Chess Connections</h3>
+              <p>
+                Trace proof-backed win chains from a Chess.com username to a
+                master target with graph views, ledgers, and leaderboards.
+              </p>
+              <ul class="feature-list">
+                <li>Recorded rapid, blitz, and bullet wins only</li>
+                <li>Animated graph plus proof-game ledger</li>
+                <li>Cloudflare-backed search jobs and shared cache</li>
+              </ul>
+              <div class="project-actions">
+                <a class="button small primary" href="https://tetizz.github.io/Connections/">Open Connections</a>
+                <a class="button small secondary" href="https://github.com/tetizz/Connections" target="_blank" rel="noreferrer">Source</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-strip" id="about" aria-labelledby="about-title">
+        <div>
+          <h2 id="about-title">Built around actual chess work</h2>
+          <p>
+            These projects share the same direction: use public game data, legal
+            boards, engine analysis, and proof links to make chess practice more concrete.
+          </p>
+        </div>
+        <div class="link-columns" aria-label="Project links">
+          <div>
+            <h3>Live projects</h3>
+            <a href="https://tetizz.github.io/Play/">Play Bots</a>
+            <a href="https://tetizz.github.io/Bookup/">Bookup</a>
+            <a href="https://tetizz.github.io/Connections/">Chess Connections</a>
+          </div>
+          <div>
+            <h3>GitHub</h3>
+            <a href="https://github.com/tetizz/Play" target="_blank" rel="noreferrer">tetizz/Play</a>
+            <a href="https://github.com/tetizz/Bookup" target="_blank" rel="noreferrer">tetizz/Bookup</a>
+            <a href="https://github.com/tetizz/Connections" target="_blank" rel="noreferrer">tetizz/Connections</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>tetizz chess lab</span>
+      <a href="https://github.com/tetizz/Home" target="_blank" rel="noreferrer">Homepage source</a>
+    </footer>
+  </body>
+</html>
