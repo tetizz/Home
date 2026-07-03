@@ -1,6 +1,6 @@
 # tetizz chess lab
 
-Home page for the chess projects under the `tetizz` GitHub account.
+Home page for the chess projects
 
 Live project links:
 
