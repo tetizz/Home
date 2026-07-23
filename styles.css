@@ -448,42 +448,47 @@ body::before {
 }
 
 .piece-ghost {
+  --piece-glow: rgba(255, 255, 255, 0.16);
+  --piece-opacity: 0.08;
   position: absolute;
   display: block;
   width: clamp(5rem, 13vw, 14rem);
-  color: rgba(246, 239, 226, 0.045);
   line-height: 0;
   transform: rotate(-10deg);
   transform-origin: center;
   animation: pieceGhostDrift 24s ease-in-out infinite;
 }
 
-.piece-ghost svg {
+.piece-ghost img {
   display: block;
   width: 100%;
   height: auto;
-  overflow: visible;
-  fill: currentColor;
-  filter: drop-shadow(0 0 46px rgba(255, 255, 255, 0.04));
+  opacity: var(--piece-opacity);
+  filter: drop-shadow(0 0 46px var(--piece-glow));
+  pointer-events: none;
+  user-select: none;
 }
 
 .piece-king {
+  --piece-glow: rgba(133, 199, 78, 0.26);
+  --piece-opacity: 0.09;
   left: 49vw;
   top: 6vh;
-  color: rgba(133, 199, 78, 0.055);
 }
 
 .piece-knight {
+  --piece-glow: rgba(118, 165, 255, 0.26);
+  --piece-opacity: 0.085;
   left: 3vw;
   top: 58vh;
-  color: rgba(118, 165, 255, 0.055);
   animation-delay: -7s;
 }
 
 .piece-rook {
+  --piece-glow: rgba(240, 201, 119, 0.24);
+  --piece-opacity: 0.085;
   right: 2vw;
   top: 42vh;
-  color: rgba(240, 201, 119, 0.052);
   animation-delay: -12s;
 }
 
@@ -1126,7 +1131,7 @@ main {
 
   .piece-ghost {
     width: 7rem;
-    opacity: 0.8;
+    opacity: 0.6;
   }
 
   .piece-king {

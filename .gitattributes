@@ -1,0 +1,2 @@
+# Keep vendored artwork byte-for-byte identical to its upstream release.
+assets/pieces/chessnut/*.svg binary

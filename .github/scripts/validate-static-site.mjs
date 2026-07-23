@@ -8,6 +8,11 @@ const requiredFiles = [
   "styles.css",
   "favicon.svg",
   ".nojekyll",
+  "assets/pieces/chessnut/wK.svg",
+  "assets/pieces/chessnut/wN.svg",
+  "assets/pieces/chessnut/wR.svg",
+  "assets/pieces/chessnut/LICENSE.txt",
+  "assets/pieces/chessnut/COPYRIGHT.txt",
 ];
 const routes = {
   play: "https://tetizz.github.io/Play/",

@@ -36,3 +36,12 @@ need an API key or repository secret.
 - Bookup: <https://github.com/tetizz/Bookup>
 - Chess Connections: <https://github.com/tetizz/Connections>
 
+## Third-party artwork
+
+The decorative king, knight, and rook use the
+[Chessnut piece set](https://github.com/LexLuengas/chessnut-pieces) by Alexis
+Luengas, imported unchanged from upstream commit
+`2b8eaf14a31edad7e9deb53b1473e1d4857868a9`. Chessnut is licensed under
+Apache-2.0; the original license and copyright notice are kept beside the SVGs
+in `assets/pieces/chessnut/`.
+
