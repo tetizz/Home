@@ -31,8 +31,12 @@ jobs:
 
       - name: Prepare static site
         run: |
-          mkdir _site
+          mkdir -p _site
           cp index.html styles.css favicon.svg README.md .nojekyll _site/
+          cp -R play bookup connections _site/
+
+      - name: Validate deployment artifact
+        run: node .github/scripts/validate-static-site.mjs _site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4

@@ -3,12 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; script-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests"
+    >
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>tetizz chess lab</title>
     <meta property="og:title" content="tetizz chess lab">
     <meta property="og:description" content="">
     <meta name="twitter:description" content="">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=live-bg-v3">
+    <link rel="stylesheet" href="styles.css?v=live-bg-v4">
   </head>
   <body>
     <div class="live-background" aria-hidden="true">
@@ -114,7 +119,7 @@
                 a generic engine match; it is a place to test ideas, get punished
                 for lazy moves, and review what happened after.
               </p>
-              <ul class="feature-list">
+              <ul class="feature-list" role="list">
                 <li>Different bot profiles with their own style</li>
                 <li>Legal board play with premoves and undo support</li>
                 <li>Game review backed by engine checks</li>
@@ -141,7 +146,7 @@
                 queue. It is for building a repertoire from positions you
                 actually reach, not from a random opening list.
               </p>
-              <ul class="feature-list">
+              <ul class="feature-list" role="list">
                 <li>Rapid, blitz, and bullet game imports</li>
                 <li>Training views for positions that need work</li>
                 <li>Smart Theory exports for cleaner study trees</li>
@@ -168,7 +173,7 @@
                 games. Every connection points back to proof games, so the graph
                 is fun without being made up.
               </p>
-              <ul class="feature-list">
+              <ul class="feature-list" role="list">
                 <li>Rapid, blitz, and bullet wins from Chess.com</li>
                 <li>Readable graph and proof ledger views</li>
                 <li>Cloudflare worker cache for heavier searches</li>
