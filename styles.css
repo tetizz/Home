@@ -449,14 +449,22 @@ body::before {
 
 .piece-ghost {
   position: absolute;
+  display: block;
+  width: clamp(5rem, 13vw, 14rem);
   color: rgba(246, 239, 226, 0.045);
-  font-family: var(--mono);
-  font-size: clamp(5rem, 13vw, 14rem);
-  font-weight: 950;
-  line-height: 0.8;
-  text-shadow: 0 0 46px rgba(255, 255, 255, 0.04);
+  line-height: 0;
   transform: rotate(-10deg);
+  transform-origin: center;
   animation: pieceGhostDrift 24s ease-in-out infinite;
+}
+
+.piece-ghost svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  fill: currentColor;
+  filter: drop-shadow(0 0 46px rgba(255, 255, 255, 0.04));
 }
 
 .piece-king {
@@ -1117,7 +1125,7 @@ main {
   }
 
   .piece-ghost {
-    font-size: 7rem;
+    width: 7rem;
     opacity: 0.8;
   }
 
