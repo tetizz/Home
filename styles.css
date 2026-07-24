@@ -915,8 +915,16 @@ main {
 }
 
 .project-icon.book {
+  overflow: hidden;
   color: var(--blue);
-  background: rgba(118, 165, 255, 0.1);
+  background: #07101d;
+}
+
+.project-icon.book img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .project-icon.graph {
