@@ -31,6 +31,15 @@ async function requireFile(relativePath) {
 
 await Promise.all(requiredFiles.map(requireFile));
 
+try {
+  const home = await readFile(path.join(siteRoot, "index.html"), "utf8");
+  if (!/<a\s+class="brand"\s+href="\.\/"\s+aria-label="tetizz chess lab home">/i.test(home)) {
+    failures.push("The header brand must link to ./ so it stays inside the Home project site");
+  }
+} catch {
+  // The required-file check above reports the missing homepage.
+}
+
 for (const [route, target] of Object.entries(routes)) {
   const relativePath = path.join(route, "index.html");
   let html;
