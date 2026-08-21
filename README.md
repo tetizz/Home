@@ -7,7 +7,7 @@ Home page for the chess projects: <https://tetizz.github.io/Home/>
 - Play Bots: <https://tetizz.github.io/Play/>
 - Bookup: <https://tetizz.github.io/Bookup/>
 - Chess Connections: <https://tetizz.github.io/Connections/>
-- Scottish Progressive (local app): <https://github.com/tetizz/progressive>
+- Scottish Progressive: <https://tetizz.github.io/progressive/>
 
 Short links are also available from the Home site:
 

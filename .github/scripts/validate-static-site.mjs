@@ -39,8 +39,11 @@ try {
   if (!/href="https:\/\/github\.com\/tetizz\/progressive"/i.test(home)) {
     failures.push("The homepage must link to the Scottish Progressive source repository");
   }
-  if (/href="https:\/\/tetizz\.github\.io\/progressive\/?"/i.test(home)) {
-    failures.push("Do not advertise a static Scottish Progressive page as a working engine site");
+  if (!home.includes('<a class="button small primary" href="https://tetizz.github.io/progressive/">Open Progressive</a>')) {
+    failures.push("The Progressive card must open the public playable site");
+  }
+  if (!home.includes('<a class="button small secondary" href="https://github.com/tetizz/progressive" target="_blank" rel="noreferrer">Source</a>')) {
+    failures.push("The Progressive card must keep a separate source link");
   }
 } catch {
   // The required-file check above reports the missing homepage.
