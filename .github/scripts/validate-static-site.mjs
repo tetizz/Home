@@ -77,6 +77,10 @@ for (const [route, target] of Object.entries(routes)) {
   if (/<script\b/i.test(html)) {
     failures.push(`${relativePath} must not require JavaScript to redirect`);
   }
+
+  if (!/<link\s+rel="icon"\s+href="\.\.\/favicon\.svg"\s+type="image\/svg\+xml">/i.test(html)) {
+    failures.push(`${relativePath} must reuse the site favicon without requesting a missing favicon.ico`);
+  }
 }
 
 if (failures.length > 0) {
