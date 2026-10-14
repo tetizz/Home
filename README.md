@@ -1,5 +1,7 @@
 # Home | tetizz
 
+The prepared October 13 source handles conditional asset requests with body-free 304 responses and avoids decoding bytes for HEAD. The original card entrances now follow their scroll visibility in supporting browsers, with the existing entrance as fallback and reduced-motion behavior retained. Local worker/static checks and desktop/narrow-viewport rendering passed; these changes are not yet deployed.
+
 The primary Home page is [s.tetizz.workers.dev](https://s.tetizz.workers.dev/).
 It brings all ten project websites together while keeping the original dark
 Home design and its CSS animations.

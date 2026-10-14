@@ -24,12 +24,18 @@ export function createWorker(assets) {
         ? '/index.html' : incoming.pathname;
       const asset = Object.hasOwn(assets, assetPath) ? assets[assetPath] : undefined;
       if (asset) {
-        const bytes = Uint8Array.from(atob(asset.base64), character => character.charCodeAt(0));
-        return respond(bytes, 200, {
+        const etag = '"' + asset.sha256 + '"';
+        const headers = {
           'Content-Type': asset.type,
           'Cache-Control': assetPath === '/index.html' ? 'no-store' : 'public, max-age=3600',
-          ETag: '"' + asset.sha256 + '"',
-        });
+          ETag: etag,
+        };
+        const tags = request.headers.get('If-None-Match') || '';
+        if (tags.split(',').some(tag => tag.trim() === '*' || tag.trim().replace(/^W\//, '') === etag))
+          return respond(null, 304, headers);
+        if (head) return respond(null, 200, headers);
+        const bytes = Uint8Array.from(atob(asset.base64), character => character.charCodeAt(0));
+        return respond(bytes, 200, headers);
       }
       const match = /^\/([^/]+)(\/.*)?$/.exec(incoming.pathname);
       if (match && (match[1] === 'home' || match[1] === 'h')) {
