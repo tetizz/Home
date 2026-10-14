@@ -8,6 +8,17 @@ const security = {
 };
 
 export function createWorker(assets) {
+  const decodedAssets = new WeakMap();
+  function assetBytes(asset) {
+    const encoded = asset.base64;
+    const cached = decodedAssets.get(asset);
+    if (typeof encoded === 'string' && cached?.encoded === encoded) return cached.bytes;
+    const binary = atob(encoded);
+    const bytes = new Uint8Array(binary.length);
+    for (let index = 0; index < binary.length; index++) bytes[index] = binary.charCodeAt(index);
+    if (typeof encoded === 'string') decodedAssets.set(asset, { encoded, bytes });
+    return bytes;
+  }
   return {
     fetch(request) {
       const head = request.method === 'HEAD';
@@ -34,8 +45,7 @@ export function createWorker(assets) {
         if (tags.split(',').some(tag => tag.trim() === '*' || tag.trim().replace(/^W\//, '') === etag))
           return respond(null, 304, headers);
         if (head) return respond(null, 200, headers);
-        const bytes = Uint8Array.from(atob(asset.base64), character => character.charCodeAt(0));
-        return respond(bytes, 200, headers);
+        return respond(assetBytes(asset), 200, headers);
       }
       const match = /^\/([^/]+)(\/.*)?$/.exec(incoming.pathname);
       if (match && (match[1] === 'home' || match[1] === 'h')) {
