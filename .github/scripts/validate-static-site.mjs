@@ -25,7 +25,6 @@ const projects = new Map([
   ["Bookup", "bookup"],
   ["Chess Connections", "connections"],
   ["Scottish Progressive", "progressive"],
-  ["DrawbackGuesser", "drawback"],
   ["Portfolio", "portfolio"],
   ["Chess Friend Graph", "graph"],
   ["HomeDesk", "desk"],
@@ -68,7 +67,7 @@ try {
     failures.push("Home must declare its clear title and primary Cloudflare root");
   }
   const cards = home.match(/<article\b[^>]*\bclass="project-card\b[^\"]*"[^>]*>[\s\S]*?<\/article>/g) ?? [];
-  if (cards.length !== projects.size) failures.push("Home must contain exactly eight project cards");
+  if (cards.length !== projects.size) failures.push("Home must contain exactly seven project cards");
   const names = new Set(), destinations = new Set();
   for (const card of cards) {
     const name = /<h3>([^<]+)<\/h3>/.exec(card)?.[1];

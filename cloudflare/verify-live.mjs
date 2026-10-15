@@ -18,8 +18,8 @@ assert.equal(homepage.status, 200);
 assert.equal(new URL(homepage.url).origin, origin);
 const html = await homepage.text();
 assert.equal(html, await fs.readFile(path.join(root, 'index.html'), 'utf8'));
-assert.equal((html.match(/<article\b/g) || []).length, 8);
-checks.push({ role: 'Home', status: 200, url: homepage.url, sha256: digest(html), projectCards: 8 });
+assert.equal((html.match(/<article\b/g) || []).length, 7);
+checks.push({ role: 'Home', status: 200, url: homepage.url, sha256: digest(html), projectCards: 7 });
 const manifest = JSON.parse(await fs.readFile(path.join(root, '.cloudflare-dist/assets-manifest.json'), 'utf8'));
 await Promise.all(Object.entries(manifest).map(async ([pathname, asset]) => {
   const response = await get(origin + pathname + '?verify=home-all-sites-20261006');
@@ -47,6 +47,6 @@ for (const route of ['home', 'h']) {
   assert.equal(response.status, 302);
   assert.equal(response.headers.get('location'), origin + '/');
 }
-const receipt = { passed: true, observedAt: new Date().toISOString(), origin, distinctSites: 11, projectCards: 8, checks };
+const receipt = { passed: true, observedAt: new Date().toISOString(), origin, distinctSites: 11, projectCards: 7, checks };
 await fs.writeFile(path.join(root, '.cloudflare-dist/live-verification.json'), JSON.stringify(receipt, null, 2) + '\n');
-console.log(JSON.stringify({ passed: true, distinctSites: 11, projectCards: 8, assets: Object.keys(manifest).length, readableRoutes: sites.length, aliases: sites.length + 2, checks: checks.length }));
+console.log(JSON.stringify({ passed: true, distinctSites: 11, projectCards: 7, assets: Object.keys(manifest).length, readableRoutes: sites.length, aliases: sites.length + 2, checks: checks.length }));

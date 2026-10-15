@@ -3,7 +3,7 @@
 The primary Home Worker now handles conditional asset requests with body-free 304 responses, avoids decoding bytes for HEAD, and reuses immutable decoded asset bytes within each Worker instance. Card entrances follow scroll visibility in supporting browsers, with the existing entrance as fallback and reduced-motion behavior retained. The published behavior is source commit `38b1d3188d43c1f32bc1cd47a85903250fb32d04`; later documentation commits do not represent another code deployment.
 
 The primary Home page is [s.tetizz.workers.dev](https://s.tetizz.workers.dev/).
-It brings eight project websites together while keeping the original dark
+It brings seven project websites together while keeping the original dark
 Home design and its CSS animations.
 
 ## Projects
@@ -12,7 +12,6 @@ Home design and its CSS animations.
 - [Bookup](https://s.tetizz.workers.dev/bookup)
 - [Chess Connections](https://s.tetizz.workers.dev/connections)
 - [Scottish Progressive](https://s.tetizz.workers.dev/progressive)
-- [DrawbackGuesser](https://s.tetizz.workers.dev/drawback)
 - [Portfolio](https://s.tetizz.workers.dev/portfolio)
 - [Chess Friend Graph](https://s.tetizz.workers.dev/graph)
 - [HomeDesk](https://s.tetizz.workers.dev/desk)
