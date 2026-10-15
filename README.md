@@ -3,7 +3,7 @@
 The primary Home Worker now handles conditional asset requests with body-free 304 responses, avoids decoding bytes for HEAD, and reuses immutable decoded asset bytes within each Worker instance. Card entrances follow scroll visibility in supporting browsers, with the existing entrance as fallback and reduced-motion behavior retained. The published behavior is source commit `38b1d3188d43c1f32bc1cd47a85903250fb32d04`; later documentation commits do not represent another code deployment.
 
 The primary Home page is [s.tetizz.workers.dev](https://s.tetizz.workers.dev/).
-It brings all ten project websites together while keeping the original dark
+It brings nine project websites together while keeping the original dark
 Home design and its CSS animations.
 
 ## Projects
@@ -12,7 +12,6 @@ Home design and its CSS animations.
 - [Bookup](https://s.tetizz.workers.dev/bookup)
 - [Chess Connections](https://s.tetizz.workers.dev/connections)
 - [Scottish Progressive](https://s.tetizz.workers.dev/progressive)
-- [FaithChess (Chess Notes)](https://s.tetizz.workers.dev/notes)
 - [DrawbackGuesser](https://s.tetizz.workers.dev/drawback)
 - [A Little Chess](https://s.tetizz.workers.dev/starter)
 - [Portfolio](https://s.tetizz.workers.dev/portfolio)
@@ -38,7 +37,7 @@ npx wrangler deploy --config cloudflare/wrangler.jsonc
 node cloudflare/verify-live.mjs
 ```
 
-The primary publication was verified on October 14, 2026. Active Worker version:
+The earlier primary publication was verified on October 14, 2026. Worker version:
 `6f4f5fd2-5ac0-45e6-a076-bdf3e6df0a7a`, 100% Ready. The prepared
 190,501-byte bundle is based on source commit `38b1d31`; all nine published
 asset bodies (138,463 bytes) match their hashes and lengths. All 22 named/short

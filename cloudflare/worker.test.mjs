@@ -15,8 +15,9 @@ test('root serves the actual Home document and its complete project catalog', as
   assert.equal(response.headers.get('Location'), null);
   assert.equal(await response.text(), await fs.readFile(path.join(root, 'index.html'), 'utf8'));
   const html = await request('/').text();
-  assert.equal((html.match(/<article\b/g) || []).length, 10);
-  for (const site of sites) assert.ok(html.includes('https://s.tetizz.workers.dev/' + site.path));
+  assert.equal((html.match(/<article\b/g) || []).length, 9);
+  assert.ok(!html.includes('FaithChess (Chess Notes)'));
+  for (const site of sites.filter(site => site.path !== 'notes')) assert.ok(html.includes('https://s.tetizz.workers.dev/' + site.path));
   for (const href of html.matchAll(/href="(https:\/\/[^"]+)"/g)) {
     assert.ok(!new URL(href[1]).hostname.endsWith('.github.io'));
   }
