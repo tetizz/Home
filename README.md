@@ -1,6 +1,6 @@
 # Home | tetizz
 
-The primary Home Worker now handles conditional asset requests with body-free 304 responses, avoids decoding bytes for HEAD, and reuses immutable decoded asset bytes within each Worker instance. Card entrances follow scroll visibility in supporting browsers, with the existing entrance as fallback and reduced-motion behavior retained. The published behavior is source commit `38b1d3188d43c1f32bc1cd47a85903250fb32d04`; later documentation commits do not represent another code deployment.
+The primary Home Worker handles conditional asset requests with body-free 304 responses, avoids decoding bytes for HEAD, and reuses immutable decoded asset bytes within each Worker instance. Card entrances follow scroll visibility in supporting browsers, with the existing entrance as fallback and reduced-motion behavior retained. Those performance changes came from source commit `38b1d3188d43c1f32bc1cd47a85903250fb32d04`. The current Home selection comes from `8175775`.
 
 The primary Home page is [s.tetizz.workers.dev](https://s.tetizz.workers.dev/).
 It brings seven project websites together while keeping the original dark
@@ -35,7 +35,17 @@ npx wrangler deploy --config cloudflare/wrangler.jsonc
 node cloudflare/verify-live.mjs
 ```
 
-The earlier primary publication was verified on October 14, 2026. Worker version:
+The current publication was verified on October 14, 2026. Worker version
+`eeb4e2e5-4a6e-4ed0-a459-55cd40ce0aef` serves seven cards after removing
+FaithChess (Chess Notes), A Little Chess, and DrawbackGuesser from Home.
+The existing project redirects remain available. All nine public asset bodies
+(135,855 bytes), 22 aliases, HEAD, conditional 304, and method checks passed.
+The browser review confirmed the seven names, updated count, and no horizontal
+overflow. The 187,021-byte prepared bundle has SHA-256
+`ff395fc89dfd88ad35c680f1e62b34816414df0ec601609cc733985384c405c8`.
+Worker preview URLs remain disabled explicitly in the deployment configuration.
+
+The earlier performance publication was verified on October 14, 2026. Worker version:
 `6f4f5fd2-5ac0-45e6-a076-bdf3e6df0a7a`, 100% Ready. The prepared
 190,501-byte bundle is based on source commit `38b1d31`; all nine published
 asset bodies (138,463 bytes) match their hashes and lengths. All 22 named/short
