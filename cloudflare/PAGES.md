@@ -1,8 +1,8 @@
 # Home on Pages
 
-Source preparation only. No build, tests or deployment were run during this change.
+On October 16, 2026, Home was deployed at https://tetizz-home.pages.dev/. Checks verified the Home and Chess Friend Graph Pages migration with 1,811 HTTP checks across both sites. That is HTTP/source and routing verification, not a claim that every browser interaction was exercised.
 
-From the Home repository, Root can run:
+From the Home repository, run:
 
 ```
 node cloudflare/build-worker.mjs
@@ -18,6 +18,8 @@ The reviewed deployment input is `.pages-dist`, with the default root `wrangler.
 wrangler pages deploy .pages-dist --project-name tetizz-home --branch main
 ```
 
-Pages uses the default root configuration; do not supply a custom config path. Existing Worker configuration at `cloudflare/wrangler.jsonc` remains available for historical comparison; no Workers endpoint is disabled by source preparation.
+Pages uses the default root configuration; do not supply a custom config path. The legacy https://s.tetizz.workers.dev address now serves a verified HTTP 308 redirect to the Pages origin, preserving the full path and query. The Connections and Chess Friend Graph legacy frontend addresses were also verified as 308 redirects. These frontend redirects do not modify their backends, KV or Durable Objects.
+
+`cloudflare/legacy-redirect.mjs` is byte-identical to the tested and published migration bundle for Worker `s`. Its explicit Worker-only configuration is `cloudflare/wrangler-redirect.jsonc`. The older `cloudflare/wrangler.jsonc` and embedded Worker builder remain for historical comparison and package parity; they are not the normal Pages deployment path or the current legacy redirect entrypoint. Keep Pages publication and legacy Worker maintenance separate.
 
 Home links now use `tetizz-home.pages.dev`, Connections uses `tetizz-connections.pages.dev`, and graph uses `tetizz-chess-friend-graph.pages.dev`. Other Pages targets and the seven-card removals are preserved. The old origin's browser storage and old bookmarks do not move automatically.
