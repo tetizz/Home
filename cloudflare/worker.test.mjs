@@ -7,7 +7,7 @@ import path from 'node:path';
 import worker, { sites } from '../.cloudflare-dist/worker.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const request = (pathname, method = 'GET') => worker.fetch(new Request('https://s.tetizz.workers.dev' + pathname, { method }));
+const request = (pathname, method = 'GET') => worker.fetch(new Request('https://tetizz-home.pages.dev' + pathname, { method }));
 
 test('root serves the actual Home document and its complete project catalog', async () => {
   const response = request('/');
@@ -19,7 +19,7 @@ test('root serves the actual Home document and its complete project catalog', as
   assert.ok(!html.includes('FaithChess (Chess Notes)'));
   assert.ok(!html.includes('A Little Chess'));
   assert.ok(!html.includes('DrawbackGuesser'));
-  for (const site of sites.filter(site => !['notes', 'starter', 'drawback'].includes(site.path))) assert.ok(html.includes('https://s.tetizz.workers.dev/' + site.path));
+  for (const site of sites.filter(site => !['notes', 'starter', 'drawback'].includes(site.path))) assert.ok(html.includes('https://tetizz-home.pages.dev/' + site.path));
   for (const href of html.matchAll(/href="(https:\/\/[^"]+)"/g)) {
     assert.ok(!new URL(href[1]).hostname.endsWith('.github.io'));
   }
@@ -46,9 +46,9 @@ test('all names and short aliases preserve deep paths and queries on fixed desti
     assert.equal(request('/' + route).headers.get('Location'), site.destination);
     assert.equal(request('/' + route + '/a%20b.json?x=1&x=2').headers.get('Location'), site.destination + 'a%20b.json?x=1&x=2');
   }
-  for (const route of ['home', 'h']) assert.equal(request('/' + route + '?x=1').headers.get('Location'), 'https://s.tetizz.workers.dev/?x=1');
+  for (const route of ['home', 'h']) assert.equal(request('/' + route + '?x=1').headers.get('Location'), 'https://tetizz-home.pages.dev/?x=1');
   for (const route of ['/h//evil.example', '/h/%2f%2fevil.example', '/g//evil.example', '/g?url=https://evil.example']) {
-    assert.ok(['https://s.tetizz.workers.dev', 'https://chess-friend-graph.tetizz.workers.dev'].includes(new URL(request(route).headers.get('Location')).origin));
+    assert.ok(['https://tetizz-home.pages.dev', 'https://tetizz-chess-friend-graph.pages.dev'].includes(new URL(request(route).headers.get('Location')).origin));
   }
 });
 

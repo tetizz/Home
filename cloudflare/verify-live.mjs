@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { sites } from './sites.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const origin = 'https://s.tetizz.workers.dev';
+const origin = 'https://tetizz-home.pages.dev';
 const checks = [];
 const digest = body => crypto.createHash('sha256').update(body).digest('hex');
 async function get(url, options = {}) {

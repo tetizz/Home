@@ -1,2 +1,4 @@
 .cloudflare-dist/
 .wrangler/
+.pages-dist/
+.pages-build-manifest.json

@@ -49,7 +49,7 @@ export function createWorker(assets) {
       }
       const match = /^\/([^/]+)(\/.*)?$/.exec(incoming.pathname);
       if (match && (match[1] === 'home' || match[1] === 'h')) {
-        const target = new URL('https://s.tetizz.workers.dev/');
+        const target = new URL('https://tetizz-home.pages.dev/');
         target.pathname = match[2] || '/';
         target.search = incoming.search;
         return respond(null, 302, { Location: target.href, 'Cache-Control': 'no-store' });
