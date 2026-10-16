@@ -16,9 +16,9 @@ const requiredFiles = [
   "assets/pieces/chessnut/COPYRIGHT.txt",
 ];
 const routes = {
-  play: "https://s.tetizz.workers.dev/play",
-  bookup: "https://s.tetizz.workers.dev/bookup",
-  connections: "https://s.tetizz.workers.dev/connections",
+  play: "https://tetizz-home.pages.dev/play",
+  bookup: "https://tetizz-home.pages.dev/bookup",
+  connections: "https://tetizz-home.pages.dev/connections",
 };
 const projects = new Map([
   ["Play Bots", "play"],
@@ -56,14 +56,14 @@ try {
   if (!/href="https:\/\/github\.com\/tetizz\/progressive"/i.test(home)) {
     failures.push("The homepage must link to the Scottish Progressive source repository");
   }
-  if (!home.includes('<a class="button small primary" href="https://s.tetizz.workers.dev/progressive">Open Progressive</a>')) {
+  if (!home.includes('<a class="button small primary" href="https://tetizz-home.pages.dev/progressive">Open Progressive</a>')) {
     failures.push("The Progressive card must open the public playable site");
   }
   if (!home.includes('<a class="button small secondary" href="https://github.com/tetizz/progressive" target="_blank" rel="noreferrer">Source</a>')) {
     failures.push("The Progressive card must keep a separate source link");
   }
   if (!home.includes('<title>Home | tetizz</title>') ||
-      !home.includes('<link rel="canonical" href="https://s.tetizz.workers.dev/">')) {
+      !home.includes('<link rel="canonical" href="https://tetizz-home.pages.dev/">')) {
     failures.push("Home must declare its clear title and primary Cloudflare root");
   }
   const cards = home.match(/<article\b[^>]*\bclass="project-card\b[^\"]*"[^>]*>[\s\S]*?<\/article>/g) ?? [];
@@ -74,7 +74,7 @@ try {
     const links = [...card.matchAll(/<a\b[^>]*class="button small primary"[^>]*href="([^\"]+)"/g)];
     const destination = links[0]?.[1];
     if (!projects.has(name) || names.has(name) || links.length !== 1 ||
-        destination !== `https://s.tetizz.workers.dev/${projects.get(name)}` || destinations.has(destination)) {
+        destination !== `https://tetizz-home.pages.dev/${projects.get(name)}` || destinations.has(destination)) {
       failures.push(`Invalid, duplicate, or unclear project card: ${name ?? "missing name"}`);
     }
     names.add(name); destinations.add(destination);
@@ -87,7 +87,7 @@ try {
     if (target.startsWith("https:")) {
       try {
         const url = new URL(target);
-        if (url.username || url.password || !["s.tetizz.workers.dev", "github.com"].includes(url.hostname))
+        if (url.username || url.password || !["tetizz-home.pages.dev", "github.com"].includes(url.hostname))
           failures.push(`Unexpected external homepage destination: ${target}`);
       } catch {
         failures.push(`Malformed homepage destination: ${target}`);
