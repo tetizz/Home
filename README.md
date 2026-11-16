@@ -3,7 +3,7 @@
 The Home router handles conditional asset requests with body-free 304 responses, avoids decoding bytes for HEAD, and reuses immutable decoded asset bytes within each instance. Card entrances follow scroll visibility in supporting browsers, with the existing entrance as fallback and reduced-motion behavior retained. Those performance changes came from source commit `38b1d3188d43c1f32bc1cd47a85903250fb32d04`. The October 14 Home selection came from `8175775`.
 
 The primary Home page is [tetizz-home.pages.dev](https://tetizz-home.pages.dev/).
-It brings seven project websites together while keeping the original dark
+It brings eight project websites together while keeping the original dark
 Home design and its CSS animations.
 
 ## Projects
@@ -15,6 +15,19 @@ Home design and its CSS animations.
 - [Portfolio](https://tetizz-home.pages.dev/portfolio)
 - [Chess Friend Graph](https://tetizz-home.pages.dev/graph)
 - [HomeDesk](https://tetizz-home.pages.dev/desk)
+- [Krillion Recall](https://tetizz-home.pages.dev/krillion/)
+
+Krillion Recall runs locally at `/krillion/` in the same Pages deployment. Its
+runtime and question dataset are static files in `krillion/`; progress stays in
+the browser. The bare `/krillion` path redirects to the directory URL so relative
+JavaScript imports and data requests resolve inside the game.
+
+The game source lives in `krillion/` with no build step or external dependencies.
+Its memory engine is covered by `cloudflare/krillion-engine.test.mjs`.
+The dataset can be rebuilt with `node scripts/import-krillion-data.mjs <merged-data.json>`;
+see [question sources and coverage](docs/krillion-data.md). Keep the attribution
+and coverage metadata when refreshing the question bank. The game and Home are
+released together through this repository's Pages bundle.
 
 The existing three redirect pages use the same descriptive Cloudflare links:
 
@@ -33,7 +46,7 @@ From this repository, prepare and check the Pages bundle:
 ```powershell
 node cloudflare/build-worker.mjs
 node cloudflare/build-pages.mjs
-node --test cloudflare/worker.test.mjs cloudflare/pages-package.test.mjs
+node --test cloudflare/*.test.mjs
 ```
 
 After reviewing that exact fresh `.pages-dist` upload, publish with the default

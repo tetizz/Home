@@ -27,7 +27,8 @@ async function walk(directory, prefix) {
   }
 }
 await walk(path.join(root, 'assets'), 'assets');
-const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.txt': 'text/plain; charset=utf-8' };
+await walk(path.join(root, 'krillion'), 'krillion');
+const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.txt': 'text/plain; charset=utf-8' };
 const assets = {};
 for (const relative of files) {
   const type = types[path.extname(relative)];

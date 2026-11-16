@@ -961,6 +961,25 @@ main {
   background: rgba(87, 196, 182, 0.09);
 }
 
+.krillion-card {
+  border-color: rgba(87, 196, 182, 0.42);
+  background: radial-gradient(260px 160px at 8% 0%, rgba(87, 196, 182, 0.16), transparent 70%), linear-gradient(145deg, rgba(10, 29, 34, 0.94), rgba(8, 15, 24, 0.92));
+}
+
+.krillion-card::after {
+  background: linear-gradient(90deg, transparent, rgba(87, 196, 182, 0.14), transparent), rgba(8, 25, 30, 0.5);
+}
+
+.project-icon.recall,
+.krillion-card .project-token {
+  color: #72d8ca;
+  background: rgba(87, 196, 182, 0.09);
+}
+
+.krillion-card .feature-list li::before {
+  background: #57c4b6;
+}
+
 .project-token {
   display: inline-flex;
   align-items: center;

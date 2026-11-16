@@ -6,6 +6,7 @@ const security = {
   'X-Content-Type-Options': 'nosniff',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
 };
+const krillionCsp = "default-src 'none'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests";
 
 export function createWorker(assets) {
   const decodedAssets = new WeakMap();
@@ -31,15 +32,20 @@ export function createWorker(assets) {
       let incoming;
       try { incoming = new URL(request.url); }
       catch { return respond('Invalid URL.\n', 400, { 'Content-Type': 'text/plain; charset=utf-8' }); }
+      if (incoming.pathname === '/krillion') {
+        incoming.pathname = '/krillion/';
+        return respond(null, 308, { Location: incoming.href, 'Cache-Control': 'no-store' });
+      }
       const assetPath = incoming.pathname === '/' || incoming.pathname === '/index.html'
-        ? '/index.html' : incoming.pathname;
+        ? '/index.html' : incoming.pathname === '/krillion/' ? '/krillion/index.html' : incoming.pathname;
       const asset = Object.hasOwn(assets, assetPath) ? assets[assetPath] : undefined;
       if (asset) {
         const etag = '"' + asset.sha256 + '"';
         const headers = {
           'Content-Type': asset.type,
-          'Cache-Control': assetPath === '/index.html' ? 'no-store' : 'public, max-age=3600',
+          'Cache-Control': assetPath.endsWith('.html') ? 'no-store' : 'public, max-age=3600',
           ETag: etag,
+          ...(assetPath.startsWith('/krillion/') ? { 'Content-Security-Policy': krillionCsp } : {}),
         };
         const tags = request.headers.get('If-None-Match') || '';
         if (tags.split(',').some(tag => tag.trim() === '*' || tag.trim().replace(/^W\//, '') === etag))

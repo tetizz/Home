@@ -15,7 +15,9 @@ test('root serves the actual Home document and its complete project catalog', as
   assert.equal(response.headers.get('Location'), null);
   assert.equal(await response.text(), await fs.readFile(path.join(root, 'index.html'), 'utf8'));
   const html = await request('/').text();
-  assert.equal((html.match(/<article\b/g) || []).length, 7);
+  assert.equal((html.match(/<article\b/g) || []).length, 8);
+  assert.ok(html.includes('<h3>Krillion Recall</h3>'));
+  assert.ok(html.includes('href="https://tetizz-home.pages.dev/krillion/"'));
   assert.ok(!html.includes('FaithChess (Chess Notes)'));
   assert.ok(!html.includes('A Little Chess'));
   assert.ok(!html.includes('DrawbackGuesser'));

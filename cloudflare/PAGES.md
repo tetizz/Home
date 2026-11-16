@@ -7,10 +7,17 @@ From the Home repository, run:
 ```
 node cloudflare/build-worker.mjs
 node cloudflare/build-pages.mjs
-node --test cloudflare/worker.test.mjs cloudflare/pages-package.test.mjs
+node --test cloudflare/*.test.mjs
 ```
 
-The Pages build requires a fresh `.pages-dist` directory and refuses to reuse one. It produces advanced-mode `_worker.js` plus `_routes.json` routing all requests through the same Home router. Every public asset is embedded with its original bytes, MIME and SHA-256; no additional static asset binding is needed. The private local `.pages-build-manifest.json` stays outside the upload directory. The package test requires byte-identical generated Worker code and asset manifests between the existing Worker build and Pages build; routing tests cover seven cards, all aliases, suffixes/queries, HEAD, assets, unsupported methods and 404.
+The Pages build requires a fresh `.pages-dist` directory and refuses to reuse one. It produces advanced-mode `_worker.js` plus `_routes.json` routing all requests through the same Home router. Every public asset is embedded with its original bytes, MIME and SHA-256; no additional static asset binding is needed. The private local `.pages-build-manifest.json` stays outside the upload directory. The package test requires byte-identical generated Worker code and asset manifests between the existing Worker build and Pages build; routing tests cover eight cards, all aliases, suffixes/queries, HEAD, assets, unsupported methods and 404.
+
+Krillion Recall is served from `/krillion/`, with a query-preserving 308 redirect
+from `/krillion`. Both builders explicitly include the `krillion/` runtime tree
+and recognize JavaScript modules and JSON data with their correct MIME types.
+Only Krillion assets receive a policy allowing same-origin scripts and data
+requests; Home keeps its existing script-free policy. The game route has no
+short alias and does not alter the existing external project redirects.
 
 The reviewed deployment input is `.pages-dist`, with the default root `wrangler.jsonc` selecting `tetizz-home`. From Home, the separate deployment command after build/test and exact upload review is:
 
